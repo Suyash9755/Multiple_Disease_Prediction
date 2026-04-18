@@ -8,12 +8,17 @@ Created on Sat Apr  4 16:32:45 2026
 import streamlit as st
 from streamlit_option_menu import option_menu
 import pickle  # Essential for loading .sav files
+import os
 
-# Load the models using pickle
+# Get the directory where this script is saved
+working_dir = os.path.dirname(os.path.abspath(__file__))
 
-diabetes_model = pickle.load(open(r'S:/ML/steamlit/multiple disease APP/saved models/daibetes_model.sav', 'rb'))
-breast_cancer_model = pickle.load(open(r'S:/ML/steamlit/multiple disease APP/saved models/breast_cancer_model.sav', 'rb'))
-heart_model = pickle.load(open(r'S:/ML/steamlit/multiple disease APP/saved models/heart_health.sav', 'rb'))
+# Join the path to the 'saved models' folder
+# Use forward slashes (/) or os.path.join for compatibility
+diabetes_model = pickle.load(open(os.path.join(working_dir, 'saved models', 'daibetes_model.sav'), 'rb'))
+breast_cancer_model = pickle.load(open(os.path.join(working_dir, 'saved models', 'breast_cancer_model.sav'), 'rb'))
+heart_model = pickle.load(open(os.path.join(working_dir, 'saved models', 'heart_health.sav'), 'rb'))
+
 
 # Sidebar menu
 with st.sidebar:
