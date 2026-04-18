@@ -1,0 +1,1 @@
+streamlit run "S:\ML\steamlit\multiple disease APP\multiple_pred.py"
